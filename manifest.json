@@ -1,0 +1,9 @@
+play": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#27ae60",
+  "icons": []
+}{
+  "name": "Ultimate AI Search OS",
+  "short_name": "AI Search OS",
+  "start_url": "./index.html",
+  "dis
