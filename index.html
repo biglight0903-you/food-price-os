@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -183,21 +184,55 @@ color:#666;
 
 <div id="searchResult"></div>
 
-<h2>③ バーコード / OCR / AI画像解析</h2>
+<h2>③ カメラ / バーコード / OCR / AI画像解析</h2>
+
+<div class="result normal">
+<h3>使い方</h3>
+<ol>
+<li>「📷 カメラ起動」を押す</li>
+<li>商品パッケージ or バーコード撮影</li>
+<li>AI解析 / OCR / 商品検索</li>
+</ol>
+</div>
 
 <div class="mode-box">
-<button onclick="startBarcodeScanner()">バーコード読み取り</button>
-<button onclick="stopScanner()">スキャナー停止</button>
+<button onclick="openCameraOnly()">
+📷 カメラ起動
+</button>
+
+<button onclick="startBarcodeScanner()">
+📦 バーコード読み取り
+</button>
+</div>
+
+<div class="mode-box">
+<button onclick="readOCR()">
+📝 OCR解析
+</button>
+
+<button onclick="analyzeImage()">
+🤖 AI画像解析
+</button>
+</div>
+
+<div class="mode-box">
+<button onclick="stopScanner()">
+⛔ スキャナー停止
+</button>
+
+<button onclick="searchOpenFoodFacts()">
+🔍 商品検索
+</button>
 </div>
 
 <div id="reader"></div>
 
-<input type="file" id="imageInput" accept="image/*" capture="environment">
-
-<div class="mode-box">
-<button onclick="readOCR()">OCR解析</button>
-<button onclick="analyzeImage()">AI画像解析</button>
-</div>
+<input 
+type="file" 
+id="imageInput" 
+accept="image/*" 
+capture="environment"
+style="margin-top:20px;">
 
 <img id="previewImage" class="preview-img" style="display:none;">
 
@@ -669,6 +704,17 @@ await html5QrCode.stop();
 }
 
 // =========================
+// カメラ起動
+// =========================
+
+window.openCameraOnly = function(){
+
+const input = document.getElementById("imageInput");
+
+input.click();
+}
+
+// =========================
 // OCR
 // =========================
 
@@ -918,4 +964,3 @@ navigator.serviceWorker.register('./sw.js');
 
 </body>
 </html>
-
